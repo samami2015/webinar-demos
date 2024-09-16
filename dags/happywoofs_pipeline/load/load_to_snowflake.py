@@ -8,17 +8,17 @@ For example for 3 sources you would need to create these 3 stages:
 
 ```sql
     CREATE STAGE sales_reports_stage
-    URL = 's3://ce-2-8-examples-bucket/load/sales_reports/'
+    URL = 's3://sen-wang-bucket/load/sales_reports/'
     CREDENTIALS = (AWS_KEY_ID = '<your aws key id>' AWS_SECRET_KEY = '<your aws secret>')
     FILE_FORMAT = (TYPE = 'CSV' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1);
 
     CREATE STAGE customer_feedback_stage
-    URL = 's3://ce-2-8-examples-bucket/load/customer_feedback/'
+    URL = 's3://sen-wang-bucket/load/customer_feedback/'
     CREDENTIALS = (AWS_KEY_ID = '<your aws key id>' AWS_SECRET_KEY = '<your aws secret>')
     FILE_FORMAT = (TYPE = 'CSV' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1);
 
     CREATE STAGE customer_data_stage
-    URL = 's3://ce-2-8-examples-bucket/load/customer_data/'
+    URL = 's3://sen-wang-bucket/load/customer_data/'
     CREDENTIALS = (AWS_KEY_ID = '<your aws key id>' AWS_SECRET_KEY = '<your aws secret>')
     FILE_FORMAT = (TYPE = 'CSV' FIELD_OPTIONALLY_ENCLOSED_BY = '"' SKIP_HEADER = 1);
 ```

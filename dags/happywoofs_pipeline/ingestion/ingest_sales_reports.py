@@ -103,19 +103,19 @@ def ingest_dag():
 
     update_dataset_obj = EmptyOperator(
         task_id=f"update_dataset_sales_reports",
-        outlets=[Dataset("s3://ce-2-8-examples-bucket/load/sales_reports")]
+        outlets=[Dataset("s3://sen-wang-bucket/load/sales_reports")]
     )
 
     # Calling TaskFlow tasks, inferring dependencies
     source_files = wait_for_new_files(
-        "s3://ce-2-8-examples-bucket/ingest/",
+        "s3://sen-wang-bucket/ingest/",
         "sales_reports",
         "aws_de_team"
     )
 
     # Dynamically map the extract, transform and load tasks over the list of new file locations
     extract_obj = extract.partial(
-        base_path_intermediate="s3://ce-2-8-examples-bucket/process/",
+        base_path_intermediate="s3://sen-wang-bucket/process/",
         conn_id_intermediate="aws_de_team", 
         source_name="sales_reports",
     ).expand(source_file=source_files)
@@ -123,7 +123,7 @@ def ingest_dag():
     checked_files = check_checksum.expand(file=extract_obj)
 
     load_obj = load.partial(
-        base_path_load="s3://ce-2-8-examples-bucket/load/",
+        base_path_load="s3://sen-wang-bucket/load/",
         conn_id_load="aws_de_team",
     ).expand(source_file=extract_obj)
 
