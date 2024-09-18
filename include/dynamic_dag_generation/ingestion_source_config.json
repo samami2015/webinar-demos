@@ -48,7 +48,7 @@
             "source_name": "customer_data",
             "base_path_ingest": "s3://sen-wang-bucket/ingest/",
             "conn_id_ingest": "aws_de_team",
-            "base_path_intermediate": "s3://sen-wang-bucket/proces/",
+            "base_path_intermediate": "s3://sen-wang-bucket/process/",
             "conn_id_intermediate": "aws_de_team",
             "base_path_load": "s3://sen-wang-bucket/load/",
             "conn_id_load": "aws_de_team",

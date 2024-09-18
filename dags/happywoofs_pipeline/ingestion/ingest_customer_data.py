@@ -115,7 +115,7 @@ def ingest_dag():
 
     # Dynamically map the extract, transform and load tasks over the list of new file locations
     extract_obj = extract.partial(
-        base_path_intermediate="s3://sen-wang-bucket/proces/",
+        base_path_intermediate="s3://sen-wang-bucket/process/",
         conn_id_intermediate="aws_de_team", 
         source_name="customer_data",
     ).expand(source_file=source_files)
